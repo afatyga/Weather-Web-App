@@ -4,32 +4,33 @@
 <script>
 window.onload = function () {
 
-var chart = new CanvasJS.Chart("chartContainer", {
+var chart = new CanvasJS.Chart("tempgraph", {
 	animationEnabled: true,
 	theme: "light2",
 	title:{
-		text: "Simple Line Chart"
+		text: "Temperature and Humidity Graph"
 	},
-	axisY:{
-		includeZero: false
-	},
-	data: [{
-		type: "line",
-		dataPoints: [
-			{ y: 450 },
-			{ y: 414},
-			{ y: 520, indexLabel: "highest",markerColor: "red", markerType: "triangle" },
-			{ y: 460 },
-			{ y: 450 },
-			{ y: 500 },
-			{ y: 480 },
-			{ y: 480 },
-			{ y: 410 , indexLabel: "lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
-			{ y: 500 },
-			{ y: 480 },
-			{ y: 510 }
-		]
-	}]
+    axisY: {
+	    title: "Temperature",
+        suffix: "°C"
+    },
+    axisX: {
+	    suffix: "%",
+        title: "Humidity"
+    },
+	data: [
+      {
+        type: "spline",
+        dataPoints: [
+        { x: 1, y: 80 },
+        { x: 2, y: 96},
+        { x: 3, y: 70 },
+        { x: 4, y: 80 },
+        { x: 5, y: 80 }
+        ]
+      }
+    ]
+
 });
 chart.render();
 
@@ -37,7 +38,7 @@ chart.render();
 </script>
 </head>
 <body>
-<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<div id="tempgraph" style="height: 300px; width: 50%;"></div>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
 </html>
