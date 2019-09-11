@@ -4,20 +4,30 @@
   <title>AH</title>
 
 
-<script src="https://apis.google.com/js/platform.js" async defer></script>
-<meta name="google-signin-scope" content="profile email">
-<meta name="google-signin-client_id" content="290222337069-69ls5l6gcka2ejadpj5i8d3eutrqo2s5.apps.googleusercontent.com">
+<meta name="google-signin-client_id" content="290222337069-bu7nk4bu89fs0gqs6vr1jebnqp6aas59.apps.googleusercontent.com">
+<script src="https://apis.google.com/js/platform.js" async defer>
 
+gapi.load('auth2', function() {
+	gapi.auth2.init();
+});
+</script>
 </head>
 <body>
 
 <h1>Trying Desperately</h1>
 
-<div class="g-signin2" data-onsuccess="onSignIn"></div>
-
+<div class="g-signin2" data-onsuccess="signIn"></div>
+<a href="#" onclick="signOut();">Sign out</a>  
 <script>
-function onSignIn(googleUser) { //upon sign on -> want to actually do the graphs and stuff, have the button hide
-  alert('in onSignIn');
+  function signOut() {
+    var auth = gapi.auth2.getAuthInstance();
+    auth.signOut().then(function () {
+      console.log('Signed out!');
+    });
+  }
+</script>
+<script>
+function signIn(googleUser) { //upon sign on -> want to actually do the graphs and stuff
   var profile = googleUser.getBasicProfile();
   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
   console.log('Name: ' + profile.getName());
@@ -25,6 +35,7 @@ function onSignIn(googleUser) { //upon sign on -> want to actually do the graphs
   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 }
 </script>
+
 
 </body>
 </html>
