@@ -16,7 +16,8 @@ gapi.load('auth2', function() {
 
 <h1>Trying Desperately</h1>
 
-<div class="g-signin2" data-onsuccess="signIn"></div>
+<div id="signin" class="g-signin2" data-onsuccess="signIn"></div>
+<button type="button" onclick="signOut()">Sign Out</button>
 <a href="#" onclick="signOut();">Sign out</a>  
 <script>
   function signOut() {
