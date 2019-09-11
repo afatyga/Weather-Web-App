@@ -10,6 +10,10 @@ var chart = new CanvasJS.Chart("tempgraph", {
 	title:{
 		text: "Temperature and Humidity Graph"
 	},
+    toolTip: {
+	    shared: true,
+        content: "<strong>Temperature:</strong> {y[0]} °C </br><strong>Humidity:</strong> {x[0]} %"
+    },
     axisY: {
 	    title: "Temperature",
         suffix: "°C"
@@ -20,7 +24,7 @@ var chart = new CanvasJS.Chart("tempgraph", {
     },
 	data: [
       {
-        type: "spline",
+        type: "scatter",
         dataPoints: [
         { x: 1, y: 80 },
         { x: 2, y: 96},
