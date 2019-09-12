@@ -3,7 +3,8 @@ BU Engineering EC463<br/>
 Software Mini Project Group 47<br/>
 Alex Fatyga + Yi Wei Chen<br/>
 <br/>
-
+Website: https://ec463-group47.appspot.com/
+<br/>
 Schedule: <br/>
 Set up front end and separate back end => Danny <br/>
 Cloud service provider => Alex <br/>

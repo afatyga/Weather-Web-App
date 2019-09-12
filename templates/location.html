@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Check your location.</p>
+
+<button onclick="Location()">Search</button>
+<p id="demo"></p>
+<p>Date/Time: <span id="datetime"></span></p>
+
+<script> // This script is to display real time on the page
+var dt = new Date();
+document.getElementById("datetime").innerHTML = ( (("0"+(dt.getMonth()+1)).slice(-2))+"."+ ("0"+dt.getDate()).slice(-2)) +"."+ (dt.getFullYear()) +" "+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2));
+</script>
+<script> // This script is to get the device location and display on the page => I will try my best to convert to map images
+var x = document.getElementById("demo");
+
+function Location() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude +
+  "<br>Longitude: " + position.coords.longitude;
+}
+
+</script>
+
+</body>
+</html>

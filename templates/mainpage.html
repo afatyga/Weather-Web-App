@@ -30,9 +30,11 @@ gapi.load('auth2', function() {
 </u2>
 
 
+
 <div id="signin" class="g-signin2" data-onsuccess="signIn"></div>
 <a href="#" onclick="signOut();"></a>  
-<button type="button" onclick="signOut()">Sign Out</button>
+<button type="button" id="signout" onclick="signOut(); 'width': 50, 'height': 50">Sign out</button>
+
 <script>
   function signOut() { //log out user and turn off graph
     var auth = gapi.auth2.getAuthInstance();
@@ -48,6 +50,7 @@ gapi.load('auth2', function() {
 
 
 <script>
+
 function signIn(){ 
 	var chart = new CanvasJS.Chart("tempgraph", {
 	animationEnabled: true,
@@ -83,8 +86,20 @@ function signIn(){
 	});
 	chart.render();
 	}
-</script>
 
+function onFailure(error) {
+    console.log(error);
+}
+</script>
+<script>
+    function renderButton() {
+        gapi.signin2.render('signin', {
+            'width' : 50,
+            'height': 50,
+            'onfailure' : onFailure
+        })
+    }
+</script>
 
 <div id="tempgraph" style="height: 300px; width: 50%;"></div>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>

@@ -84,6 +84,11 @@ def temp():
 	return render_template(
         'temptest.html', temper =temper, humidity = humid, length = length)
 
+@app.route('/location')
+def location():
+    return render_template(
+        'location.html')
+
 if __name__ == '__main__':
 
     app.run()
