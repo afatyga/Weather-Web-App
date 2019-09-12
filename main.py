@@ -40,16 +40,14 @@ db = sqlalchemy.create_engine(
     pool_recycle=1800,  # 30 minutes
 
 )
-
-@app.before_first_request
-def create_tables():
-    # Create tables (if they don't already exist)
-    with db.connect() as conn:
-        conn.execute(
-            "CREATE TABLE IF NOT EXISTS votes "
-            "( vote_id SERIAL NOT NULL, time_cast timestamp NOT NULL, "
-            "candidate CHAR(6) NOT NULL, PRIMARY KEY (vote_id) );"
-        )
+#write random values into 2 lists
+#with db.connect() as conn:
+#    conn.execute(
+#            "CREATE TABLE entries2 (temp INTEGER, humidity DECIMAL(1,2));"
+#            "INSERT INTO entries2 (temp, humidity) values "
+#            "( vote_id SERIAL NOT NULL, time_cast timestamp NOT NULL, "
+ #           "candidate CHAR(6) NOT NULL, PRIMARY KEY (vote_id) );"
+  #      )
 
 
 @app.route('/')

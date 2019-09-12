@@ -17,23 +17,8 @@ gapi.load('auth2', function() {
 <h1>Weather Fun!</h1>
 
 
-<ul class="temp">
-    {% for t in temp %}
-        Temp is <b>{{t}}</b>
-    {% endfor %}
-</ul>
-
-<u2 class="humidity">
-    {% for t in humidity %}
-        humidity is <b>{{t}}</b>
-    {% endfor %}
-</u2>
-
-
-
 <div id="signin" class="g-signin2" data-onsuccess="signIn"></div>
-<a href="#" onclick="signOut();"></a>  
-<button type="button" id="signout" onclick="signOut(); 'width': 50, 'height': 50">Sign out</button>
+<button type = "button" id ="signout" href="#" onclick="signOut();'width': 50, 'height': 50">Sign out</button>
 
 <script>
   function signOut() { //log out user and turn off graph
@@ -41,10 +26,7 @@ gapi.load('auth2', function() {
     auth.signOut().then(function () {
       console.log('Signed out!');
     });
-    if (chart) {
-    	alert(chart is on);
-    	chart = 0;
-    }
+
   }
 </script>
 

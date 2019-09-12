@@ -8,17 +8,17 @@
     {% endfor %}
 </u2>
 
-
 <script>
 window.onload = function () {
 
 points = [];
-for (var i = 0; i < length; i++){
-    points.push({x:temper[i], y:humidity[i]});
-}
-alert(points);
-alert(temper)
-alert(humidity)
+alert(temper);
+points = {x:temper, y:humidity};
+//points = [];
+//for (var i = 0; i < length; i++){
+//    points.push({x:temper[i], y:humidity[i]});
+//}
+
 
 var chart = new CanvasJS.Chart("tempgraph", {
 	animationEnabled: true,
