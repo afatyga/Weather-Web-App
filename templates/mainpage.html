@@ -16,9 +16,8 @@ gapi.load('auth2', function() {
 
 <h1>Trying Desperately</h1>
 
-<div id="signin" class="g-signin2" data-onsuccess="signIn"></div>
-<button type="button" onclick="signOut()">Sign Out</button>
-<a href="#" onclick="signOut();">Sign out</a>  
+<div id="signin" class="g-signin2" ></div>
+<button type="button" id="signout" onclick="signOut(); 'width': 50, 'height': 50">Sign out</button>
 <script>
   function signOut() {
     var auth = gapi.auth2.getAuthInstance();
@@ -35,8 +34,19 @@ function signIn(googleUser) { //upon sign on -> want to actually do the graphs a
   console.log('Image URL: ' + profile.getImageUrl());
   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 }
+function onFailure(error) {
+    console.log(error);
+}
 </script>
-
+<script>
+    function renderButton() {
+        gapi.signin2.render('signin', {
+            'width' : 50,
+            'height': 50,
+            'onfailure' : onFailure
+        })
+    }
+</script>
 
 </body>
 </html>

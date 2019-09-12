@@ -13,6 +13,11 @@ def temp():
     return render_template(
         'temptest.html')
 
+@app.route('/location')
+def location():
+    return render_template(
+        'location.html')
+
 if __name__ == '__main__':
 
     app.run()
