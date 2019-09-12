@@ -30,15 +30,13 @@ gapi.load('auth2', function() {
   }
 </script>
 
-
-<script>
-
+<script> // This script is to display the graph of temperature and humidity
 function signIn(){ 
 	var chart = new CanvasJS.Chart("tempgraph", {
 	animationEnabled: true,
 	theme: "light2", // theme of the graph
 	title:{
-		text: "Temperature and Humidity Graph" // Title of the grpah
+		text: "Temperature and Humidity Graph" // Title of the graph
 	},
     toolTip: { // Create a little box when the point on the graph has been touch
 	    shared: true,
@@ -85,5 +83,36 @@ function onFailure(error) {
 
 <div id="tempgraph" style="height: 300px; width: 50%;"></div>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+
+<p>Check your location.</p>
+
+<button onclick="Location()">Search</button>
+<p id="demo"></p>
+<p>Date/Time: <span id="datetime"></span></p>
+
+<script> // This script is to display real time on the page
+var dt = new Date();
+document.getElementById("datetime").innerHTML = ( (("0"+(dt.getMonth()+1)).slice(-2))+"."+ ("0"+dt.getDate()).slice(-2)) +"."+ (dt.getFullYear()) +" "+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2));
+</script>
+<script> // This script is to get the device location and display on the page => I will try my best to convert to map images
+var x = document.getElementById("demo");
+
+function Location() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude +
+  "<br>Longitude: " + position.coords.longitude;
+}
+
+</script>
+
+
 </body>
 </html>
