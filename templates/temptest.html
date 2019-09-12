@@ -1,8 +1,24 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+
+<u2 class="humidity">
+    {% for t in humidity %}
+        humidity is <b>{{t}}</b>
+    {% endfor %}
+</u2>
+
+
 <script>
 window.onload = function () {
+
+points = [];
+for (var i = 0; i < length; i++){
+    points.push({x:temper[i], y:humidity[i]});
+}
+alert(points);
+alert(temper)
+alert(humidity)
 
 var chart = new CanvasJS.Chart("tempgraph", {
 	animationEnabled: true,
@@ -12,11 +28,11 @@ var chart = new CanvasJS.Chart("tempgraph", {
 	},
     toolTip: { // Create a little box when the point on the graph has been touch
 	    shared: true,
-        content: "<strong>Temperature:</strong> {y[0]} °C </br><strong>Humidity:</strong> {x[0]} %"
+        content: "<strong>Temperature:</strong> {y[0]} °F </br><strong>Humidity:</strong> {x[0]} %"
     },
     axisY: { // formatting y-axis
 	    title: "Temperature",
-        suffix: "°C"
+        suffix: "°F"
     },
     axisX: { // formatting x-axis
 	    suffix: "%",
@@ -25,13 +41,7 @@ var chart = new CanvasJS.Chart("tempgraph", {
 	data: [ // input data to plot the graph -> need to git data from else where
       {
         type: "scatter",
-        dataPoints: [
-        { x: 1, y: 80 },
-        { x: 2, y: 96},
-        { x: 3, y: 70 },
-        { x: 4, y: 80 },
-        { x: 5, y: 80 }
-        ]
+        dataPoints: points
       }
     ]
 

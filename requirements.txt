@@ -6,4 +6,6 @@ Flask-Login==0.4.1
 requests==2.21.0
 google-cloud-datastore==1.7.3
 google-auth==1.6.2
+Flask-SQLAlchemy==2.3.2
+PyMySQL==0.9.3
 
