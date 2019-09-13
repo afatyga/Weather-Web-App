@@ -109,10 +109,8 @@ function Location() {
 }
 
 function showPosition(position) {
-    var lat = position.coords.latitude;
-    var lon = position.coords.longitude;
-  x.innerHTML = "Latitude: " + lat +
-  "<br>Longitude: " + lon;
+  x.innerHTML = "Latitude: " + position.coords.latitude +
+  "<br>Longitude: " + position.coords.longitude;
 }
 
 var url = "https://api.darksky.net/forecast/e7d8d22d4d7468930b5ffc9d4cb56a9e/" + position.coords.latitude + "," + position.coords.longitude;
