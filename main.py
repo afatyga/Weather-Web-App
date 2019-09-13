@@ -94,7 +94,7 @@ def temp():
 		for row in all_data:
 			temper.append(row[0])
 			humid.append(row[1])
-            data.append({'x': row[0],'y': row[1]})
+         #   data.append({'x': row[0],'y': row[1]})
 	length = len(temper)
 	return render_template(
         'temptest.html', temper =temper, humidity = humid, length = length, data = data)
