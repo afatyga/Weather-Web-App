@@ -2,22 +2,14 @@
 <html>
 <head>
 
-<u2 class="humidity">
+<!--u2 class="humidity">
     {% for t in humidity %}
         humidity is <b>{{t}}</b>
     {% endfor %}
 </u2>
-
+-->
 <script>
 window.onload = function () {
-
-points = [];
-alert(temper);
-points = {x:temper, y:humidity};
-//points = [];
-//for (var i = 0; i < length; i++){
-//    points.push({x:temper[i], y:humidity[i]});
-//}
 
 
 var chart = new CanvasJS.Chart("tempgraph", {
@@ -41,7 +33,7 @@ var chart = new CanvasJS.Chart("tempgraph", {
 	data: [ // input data to plot the graph -> need to git data from else where
       {
         type: "scatter",
-        dataPoints: points
+        dataPoints: data
       }
     ]
 

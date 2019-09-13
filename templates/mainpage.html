@@ -113,6 +113,15 @@ function showPosition(position) {
   "<br>Longitude: " + position.coords.longitude;
 }
 
+var url = "https://api.darksky.net/forecast/e7d8d22d4d7468930b5ffc9d4cb56a9e/" + position.coords.latitude + "," + position.coords.longitude;
+$.getJSON(url, function(data) {
+	var temp = data.currently.temperature;
+	var fahrenheit = (data.currently.temperature * 9 / 5 + 32).toFixed(1) + "&deg;F";
+	var description = data.currently.summary;
+    var wind = " " + data.currently.windSpeed.toFixed(1) + " m/s ";
+    var humidity = " " + (data.currently.humidity * 100).toFixed(0) + " %";
+    x.innerHTML = "Current Temperature: " + fahrenheit + "°F" + "<br>" + description + "<br>With a Wind Speed of " + wind + "and " + humidity + "humidity"
+	}
 </script>
 
 

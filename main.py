@@ -42,48 +42,62 @@ db = sqlalchemy.create_engine(
 
 )
 #write random values into 2 lists
+#x = []
+#y = []
+#z = []
+#for i in range(10):
+#	a = randint(1, 100)
+#	b = randint(1,100)
+#	x.append(a/100)
+#	y.append(b)
+#	#z.append((a,b))
 
+#with db.connect() as conn: #how to create a new table within the database
+#    conn.execute(
+#            "CREATE TABLE entries2 (temp INTEGER, humidity DECIMAL(3,2));"
+#        )
+#    conn.execute("INSERT INTO entries2(temp,humidity) VALUES(" + x[0] + "," + y[0] + ");")
+#    conn.execute("INSERT INTO entries2(temp,humidity) VALUES(" + x[1] + "," + y[1] + ");")
+#    conn.execute("INSERT INTO entries2(temp,humidity) VALUES(" + x[2] + "," + y[2] + ");")
+#    conn.execute("INSERT INTO entries2(temp,humidity) VALUES(" + x[3] + "," + y[3] + ");")
+#    conn.execute("INSERT INTO entries2(temp,humidity) VALUES(" + x[4] + "," + y[4] + ");")
+#    conn.execute("INSERT INTO entries2(temp,humidity) VALUES(" + x[5] + "," + y[5] + ");")
+#    conn.execute("INSERT INTO entries2(temp,humidity) VALUES(" + x[6] + "," + y[6] + ");")
+#    conn.execute("INSERT INTO entries2(temp,humidity) VALUES(" + x[7] + "," + y[7] + ");")
+#    conn.execute("INSERT INTO entries2(temp,humidity) VALUES(" + x[8] + "," + y[8] + ");")
+#    conn.execute("INSERT INTO entries2(temp,humidity) VALUES(" + x[9] + "," + y[9] + ");")
 
-#with db.connect() as conn:
- #   conn.execute(
-  #          "CREATE TABLE entries2 (temp INTEGER, humidity DECIMAL(1,2));"
-    #        "INSERT INTO entries2 (temp, humidity) values "
-   #         "( vote_id SERIAL NOT NULL, time_cast timestamp NOT NULL, "
-     #       "candidate CHAR(6) NOT NULL, PRIMARY KEY (vote_id) );"
-      #  )
 
 
 @app.route('/')
 def root():
 	temp = []
 	humidity = []
+	data = []
 	with db.connect() as conn:
-        # Execute the query and fetch all results
 		all_data = conn.execute(
             "SELECT * FROM entries;"
 		).fetchall()
-        # Convert the results into a list of dicts representing votes
 		for row in all_data:
 			temp.append(row[0])
 			humidity.append(row[1])
-            #data.append('temp': row[0],'humidity': row[1])
+         #   data.append({'x': row[0],'y': row[1]})
 	return render_template('mainpage.html', temp = temp, humidity = humidity, length = len(temp))
 
 @app.route('/temp')
 def temp():
 	temper = []
 	humid = []
+	data = []
 	with db.connect() as conn:
-        # Execute the query and fetch all results
 		all_data = conn.execute("SELECT * FROM entries;").fetchall()
-        # Convert the results into a list of dicts representing votes
 		for row in all_data:
 			temper.append(row[0])
 			humid.append(row[1])
-            #data.append('temp': row[0],'humidity': row[1])
+            data.append({'x': row[0],'y': row[1]})
 	length = len(temper)
 	return render_template(
-        'temptest.html', temper =temper, humidity = humid, length = length)
+        'temptest.html', temper =temper, humidity = humid, length = length, data = data)
 
 @app.route('/location')
 def location():
