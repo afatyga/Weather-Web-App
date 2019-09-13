@@ -7,15 +7,18 @@ Website: https://ec463-group47.appspot.com/
 <br/> Please make sure to use https so that the connection is considered secure by your browser and allows for location to be used
 <br/>
 <br/>
+The web app uses Python (Flask) and HTML. Google Cloud has been used to allow for multiple users at the same time, a database was created on Cloud SQL (using Google Cloud) which is read in main.py to then plot the temperature and humidity graph.
+<br/>
+<br/>
 Schedule: <br/>
 Set up front end and separate back end -> Danny <br/>
 Cloud service provider -> Alex <br/>
---Put our started app on the cloud by Monday DONE <br/>
-Google single sign on DONE -> Alex <br/>
+--Put our started app on the cloud by Monday  <br/>
+Google single sign on -> Alex <br/>
 <br/>
 Sprint 1 - Tuesday to Wednesday <br/>
-Plot temperature and humidity -> Danny <br/>
-Working Database that we can get data from -> Alex <br/>
+Create a temperature and humidity graph-> Danny <br/>
+Working Database that we can read from -> Alex <br/>
 Sprint 2 - Thursday to Friday<br/>
 Receiving Location for the Weather API -> Danny <br/>
 Weather API - user access to weather -> Danny+Alex<br/>
