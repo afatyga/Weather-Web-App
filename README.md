@@ -4,18 +4,30 @@ Software Mini Project Group 47<br/>
 Alex Fatyga + Yi Wei Chen<br/>
 <br/>
 Website: https://ec463-group47.appspot.com/
+<br/> Please make sure to use https so that the connection is considered secure by your browser and allows for location to be used
+<br/>
 <br/>
 Schedule: <br/>
-Set up front end and separate back end => Danny <br/>
-Cloud service provider => Alex <br/>
+Set up front end and separate back end -> Danny <br/>
+Cloud service provider -> Alex <br/>
 --Put our started app on the cloud by Monday DONE <br/>
-Google single sign on DONE <br/>
+Google single sign on DONE -> Alex <br/>
 <br/>
-Sprint 1 - Tuesday to Sunday <br/>
+Sprint 1 - Tuesday to Wednesday <br/>
 Plot temperature and humidity -> Danny <br/>
-Database -> Alex <br/>
---Have sensor data come from the database to then be put into the plot <br/>
+Working Database that we can get data from -> Alex <br/>
+Sprint 2 - Thursday to Friday<br/>
+Receiving Location for the Weather API -> Danny <br/>
+Weather API - user access to weather -> Danny+Alex<br/>
+Have sensor data come from the database to then be put into the plot -> Danny+Alex<br/>
 <br/>
-Sprint 2 - Sunday to Wednesday --- Still undergoing planning<br/>
-Weather API - user access to weather <br/>
-Define tests
+Meetings:<br/>
+-Sunday Night<br/>
+-Tuesday Night<br/>
+-Thursday Night<br/>
+<br/>
+In Sunday's meeting, we decided we wanted a web app in Flask and started working<br/>
+Sunday to Tuesday was spent setting up the cloud and the app itself<br/>
+Tuesday's meeting kicked off the 1st sprint and we set the goal to finish by our next meeting Thursday<br/>
+Thursday's meeting kicked off sprint 2 and has the set goal to conclude on Friday<br/>
+Friday until the deadline will work on testing for Sprint 2 and improving the front end's appearance
