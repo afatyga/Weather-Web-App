@@ -18,9 +18,9 @@ gapi.load('auth2', function() {
 
 
 <div id="signin" class="g-signin2" data-onsuccess="signIn"></div>
-<button type = "button" id ="signout" href="#" onclick="signOut();'width': 50, 'height': 50">Sign out</button>
+<!--button type = "button" id ="signout" href="#" onclick="signOut();'width': 50, 'height': 50">Sign out</button>-->
 
-<script>
+<!--<script>
   function signOut() { //log out user and turn off graph
     var auth = gapi.auth2.getAuthInstance();
     auth.signOut().then(function () {
@@ -29,8 +29,10 @@ gapi.load('auth2', function() {
 
   }
 </script>
+-->
 
 <script> // This script is to display the graph of temperature and humidity
+
 function signIn(){ 
 	var chart = new CanvasJS.Chart("tempgraph", {
 	animationEnabled: true,

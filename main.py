@@ -6,6 +6,7 @@ logging.basicConfig(level=logging.INFO)
 
 import sqlalchemy
 
+from random import *
 app = Flask(__name__)
 import os
 
@@ -41,13 +42,15 @@ db = sqlalchemy.create_engine(
 
 )
 #write random values into 2 lists
+
+
 #with db.connect() as conn:
-#    conn.execute(
-#            "CREATE TABLE entries2 (temp INTEGER, humidity DECIMAL(1,2));"
-#            "INSERT INTO entries2 (temp, humidity) values "
-#            "( vote_id SERIAL NOT NULL, time_cast timestamp NOT NULL, "
- #           "candidate CHAR(6) NOT NULL, PRIMARY KEY (vote_id) );"
-  #      )
+ #   conn.execute(
+  #          "CREATE TABLE entries2 (temp INTEGER, humidity DECIMAL(1,2));"
+    #        "INSERT INTO entries2 (temp, humidity) values "
+   #         "( vote_id SERIAL NOT NULL, time_cast timestamp NOT NULL, "
+     #       "candidate CHAR(6) NOT NULL, PRIMARY KEY (vote_id) );"
+      #  )
 
 
 @app.route('/')
