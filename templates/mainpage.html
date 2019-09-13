@@ -34,6 +34,7 @@ gapi.load('auth2', function() {
 <script> // This script is to display the graph of temperature and humidity
 
 function signIn(){ 
+	var d = document.getElementById('data');
 	var chart = new CanvasJS.Chart("tempgraph", {
 	animationEnabled: true,
 	theme: "light2", // theme of the graph
@@ -55,13 +56,7 @@ function signIn(){
 	data: [ // input data to plot the graph -> need to git data from else where
       {
         type: "scatter",
-        dataPoints: [
-        { x: 1, y: 80 },
-        { x: 2, y: 96},
-        { x: 3, y: 70 },
-        { x: 4, y: 80 },
-        { x: 5, y: 80 }
-        ]
+        dataPoints: d
       }
     ]
 
@@ -113,8 +108,9 @@ function showPosition(position) {
   "<br>Longitude: " + position.coords.longitude;
 }
 
-var url = "https://api.darksky.net/forecast/e7d8d22d4d7468930b5ffc9d4cb56a9e/" + position.coords.latitude + "," + position.coords.longitude;
-$.getJSON(url, function(data) {
+function useApi(){
+	var url = "https://api.darksky.net/forecast/e7d8d22d4d7468930b5ffc9d4cb56a9e/" + position.coords.latitude + "," + position.coords.longitude;
+	$.getJSON(url, function(data) {
 	var temp = data.currently.temperature;
 	var fahrenheit = (data.currently.temperature * 9 / 5 + 32).toFixed(1) + "&deg;F";
 	var description = data.currently.summary;
@@ -122,7 +118,7 @@ $.getJSON(url, function(data) {
     var humidity = " " + (data.currently.humidity * 100).toFixed(0) + " %";
     x.innerHTML = "Current Temperature: " + fahrenheit + "°F" + "<br>" + description + "<br>With a Wind Speed of " + wind + "and " + humidity + "humidity"
 	}
-
+}
 </script>
 
 

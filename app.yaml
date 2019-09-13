@@ -5,17 +5,10 @@ entrypoint: gunicorn -b :$PORT main:app
 runtime_config:
   python_version: 3
 
-#[START gae_flex_mysql_env]
 env_variables:
-    # Replace user, password, database, and instance connection name with the values obtained
-    # when configuring your Cloud SQL instance.
+
     SQLALCHEMY_DATABASE_URI: >-
       mysql+pymysql://HOST:47@/sensorData?unix_socket=/cloudsql/ec463-group47:northamerica-northeast1:instance
-#[END gae_flex_mysql_env]
 
-#[START gae_flex_mysql_settings]
-# Replace project and instance with the values obtained  when configuring your
-# Cloud SQL instance.
 beta_settings:
     cloud_sql_instances: ec463-group47:northamerica-northeast1:instance
-#[END gae_flex_mysql_settings]

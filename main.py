@@ -71,23 +71,23 @@ db = sqlalchemy.create_engine(
 #    conn.execute("INSERT INTO entries2(temp,humidity) VALUES(" + x[9] + "," + y[9] + ");")
 
 
-@app.route('/')
-def root():
-    temp = []
-    humidity = []
-    data = []
-    with db.connect() as conn:
-        all_data = conn.execute(
-            "SELECT * FROM entries;"
-        ).fetchall()
-        for row in all_data:
-            temp.append(row[0])
-            humidity.append(row[1])
+#@app.route('/')
+#def root():
+   # temp = []
+   # humidity = []
+   # data = []
+   # with db.connect() as conn:
+      #  all_data = conn.execute(
+     #       "SELECT * FROM entries;"
+    #    ).fetchall()
+   #     for row in all_data:
+  #          temp.append(row[0])
+ #           humidity.append(row[1])
     #   data.append({'x': row[0],'y': row[1]})
-    return render_template('mainpage.html', temp=temp, humidity=humidity, length=len(temp))
+#    return render_template('mainpage.html', temp=temp, humidity=humidity, length=len(temp))
 
 
-@app.route('/temp')
+@app.route('/')
 def temp():
     temper = []
     humid = []
@@ -100,7 +100,7 @@ def temp():
             data.append({'x': row[0], 'y': row[1]})
     length = len(temper)
     return render_template(
-        'temptest.html', temper=temper, humidity=humid, length=length, data=data)
+        'mainpage.html', temp=temp, humidity=humidity, length=length, data=data)
 
 
 @app.route('/location')
