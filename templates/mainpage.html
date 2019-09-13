@@ -107,10 +107,45 @@ function Location() {
 }
 
 function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude +
-  "<br>Longitude: " + position.coords.longitude;
+    var lat = position.coords.latitude;
+    var lon = position.coords.longitude;
+  x.innerHTML = "Latitude: " + lat +
+  "<br>Longitude: " + lon;
 }
 
+var url = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+ lat + "," + lon;
+// Get data through json
+    $.getJSON(url, function(data) {
+        var addr = data.result[0].address_components;
+        addr.forEach(function(val){
+            if(val.types[0] === "locality") {
+                cityname = val.long_name;
+            }
+            if(val.types[0] === "country") {
+                countrycode = val.shortname;
+                countryname = val.long_name;
+            }
+        })
+        $('#weather-location').text(cityname + ", "+countryname);
+    });
+
+function getweatherdata(lat,lon) {
+    var exclude = "?exclude=minutely,hourly,daily,alerts,flags";
+    var url = "https://api.darksky.net/forecast/e7d8d22d4d7468930b5ffc9d4cb56a9e/" + lat + "," + lon + exclude + "?units=si";
+
+    $.ajax({
+        url:url,
+        dataType: "jsonp",
+        success: function (weatherdata) {
+            var icon = weatherdata.currently.icon;
+            var description = weatherdata.currently.summary;
+            var temp = weatherdata.currently.temperature;
+        }
+    });
+}
+
+$('#weather-description').text(weatherdata.currently.summary);
+$('#weather-description').text(weatherdata.currently.temperature);
 </script>
 
 
