@@ -1,7 +1,7 @@
 # 2019-mini-s47
 BU Engineering EC463<br/>
 Software Mini Project Group 47<br/>
-Alex Fatyga + Yi Wei Chen<br/>
+Alex Fatyga + Yi Wei (Danny) Chen<br/>
 <br/>
 Website: https://ec463-group47.appspot.com/
 <br/> Please make sure to use https so that the connection is considered secure by your browser and allows for location to be used
