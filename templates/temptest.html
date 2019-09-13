@@ -1,12 +1,19 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+<p id="demo"></p>
 
 <script>
 window.onload = function () {
 
+    var hum = document.getElementByName('humidity');
+    var temp = document.getElementByName('temp');
 
-var chart = new CanvasJS.Chart("tempgraph", {
+
+    var x = document.getElementById("demo");
+    x.innerHTML = "hum is " + hum + "does this work " + temp; 
+
+    var chart = new CanvasJS.Chart("tempgraph", {
 	animationEnabled: true,
 	theme: "light2", // theme of the graph
 	title:{
@@ -27,7 +34,13 @@ var chart = new CanvasJS.Chart("tempgraph", {
 	data: [ // input data to plot the graph -> need to git data from else where
       {
         type: "scatter",
-        dataPoints: data
+        dataPoints: [
+        { x: 1, y: 80 },
+        { x: 2, y: 96},
+        { x: 3, y: 70 },
+        { x: 4, y: 80 },
+        { x: 5, y: 80 }
+        ]
       }
     ]
 
