@@ -88,20 +88,34 @@ db = sqlalchemy.create_engine(
 
 
 @app.route('/')
-def temp():
-    temper = []
-    humid = []
+def root2():
+    temp = []
+    humidity = []
     data = []
     with db.connect() as conn:
         all_data = conn.execute("SELECT * FROM entries;").fetchall()
         for row in all_data:
-            temper.append(row[0])
-            humid.append(row[1])
+            temp.append(row[0])
+            humidity.append(row[1])
             data.append({'x': row[0], 'y': row[1]})
-    length = len(temper)
+    length = len(temp)
     return render_template(
         'mainpage.html', temp=temp, humidity=humidity, length=length, data=data)
 
+@app.route('/temp')
+def root():
+    temp = []
+    humidity = []
+    data = []
+    with db.connect() as conn:
+        all_data = conn.execute("SELECT * FROM entries;").fetchall()
+        for row in all_data:
+            temp.append(row[0])
+            humidity.append(row[1])
+            data.append({'x': row[0], 'y': row[1]})
+    length = len(temp)
+    return render_template(
+        'temptest.html', temp=temp, humidity=humidity, length=length, data=data)
 
 @app.route('/location')
 def location():
