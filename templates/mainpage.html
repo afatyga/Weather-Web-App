@@ -88,54 +88,51 @@ function onFailure(error) {
 <div id="tempgraph" style="height: 300px; width: 50%;"></div>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
+<!-- This <div> is to display the timezone, temperature, and humidity on webpage -->
+<div class = "location">
+    <h1 class="location-timezone"></h1>
+</div>
+<div class = "temperature">
+    <h2 class="degree"></h2>
+    <span class="temp-type">°F</span>
+</div>
+<div class = "humidd">
+    <h3 class = "humid"></h3>
+    <span class="percent">%</span>
+</div>
+<!-- This script is to get the data from Dark Sky Api as well as the device's location -->
+<script type="text/javascript">
+    window.addEventListener('load', () => {
+    let long;
+    let lat;
+    let tempdegree = document.querySelector(".degree");
+    let locationtime = document.querySelector(".location-timezone");
+    let humidpercent = document.querySelector(".humid");
 
-<p>Check your location.</p>
+    if(navigator.geolocation) { // Find the longitude and latitude of the device
+        navigator.geolocation.getCurrentPosition(position => {
+            long = position.coords.longitude;
+            lat = position.coords.latitude;
 
-<button onclick="Location()">Search</button>
-<p id="demo"></p>
-<p>Date/Time: <span id="datetime"></span></p>
+            const proxy = 'https://cors-anywhere.herokuapp.com/';
+            const api = proxy+'https://api.darksky.net/forecast/e7d8d22d4d7468930b5ffc9d4cb56a9e/'+lat+','+long; // Dark Sky API
 
-<script> // This script is to display real time on the page
-var dt = new Date();
-document.getElementById("datetime").innerHTML = ( (("0"+(dt.getMonth()+1)).slice(-2))+"."+ ("0"+dt.getDate()).slice(-2)) +"."+ (dt.getFullYear()) +" "+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2));
+            fetch(api)
+                .then(response => {
+                    return response.json(); // Fetch the Dark Sky API and display json data
+            })
+                .then(data => {
+                    console.log(data);
+                    const {temperature} = data.currently; // Get "temperature information from data
+                    tempdegree.textContent = temperature; // Input the temperature from data to html
+                    locationtime.textContent = data.timezone; // Get timezone info from data and send to html
+                    let hum2per = data.currently.humidity * 100; // Function to transform the decimal points to percentage of the humidity
+                    humidpercent.textContent = hum2per; // Get converted humidity data and sned to html
+            });
+        });
+    };
+});
 </script>
-<script> // This script is to get the device location and display on the page => I will try my best to convert to map images
-var x = document.getElementById("demo");
 
-function Location() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else {
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
-}
-
-function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude +
-  "<br>Longitude: " + position.coords.longitude;
- // var url = "https://api.darksky.net/forecast/e7d8d22d4d7468930b5ffc9d4cb56a9e/" + position.coords.latitude + "," + position.coords.longitude;
- // $.getJSON(url, function(data) {
-  //	x.innerHTML = "Current Temperature: " + fahrenheit + "°F" + "<br>" + description + "<br>With a Wind Speed of " + wind + "and " + humidity + "humidity"
-  	//}
-}
-
-<<<<<<< HEAD
-=======
-
-//function useApi(){
-//	var url = "https://api.darksky.net/forecast/e7d8d22d4d7468930b5ffc9d4cb56a9e/" + position.coords.latitude + "," + position.coords.longitude;
-//	$.getJSON(url, function(data) {
-//	var temp = data.currently.temperature;
-//	var fahrenheit = (data.currently.temperature * 9 / 5 + 32).toFixed(1) + "&deg;F";
-//	var description = data.currently.summary;
-  //  var wind = " " + data.currently.windSpeed.toFixed(1) + " m/s ";
-    //var humidity = " " + (data.currently.humidity * 100).toFixed(0) + " %";
-  //  x.innerHTML = "Current Temperature: " + fahrenheit + "°F" + "<br>" + description + "<br>With a Wind Speed of " + wind + "and " + humidity + "humidity"
-//	}
-//}
-
-
->>>>>>> e9c2e10c1faebbe985d538faa38e328e633c55fc
-</script>
 </body>
 </html>

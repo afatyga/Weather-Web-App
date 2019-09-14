@@ -9,12 +9,18 @@
     <h2 class="degree"></h2>
     <span class="temp-type">°F</span>
 </div>
+<div class = "humidd">
+    <h3 class = "humid"></h3>
+    <span class="percent">%</span>
+</div>
+
 <script type="text/javascript">
     window.addEventListener('load', () => {
     let long;
     let lat;
     let tempdegree = document.querySelector(".degree");
     let locationtime = document.querySelector(".location-timezone");
+    let humidpercent = document.querySelector(".humid");
 
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
@@ -33,6 +39,10 @@
                     const {temperature} = data.currently;
                     tempdegree.textContent = temperature;
                     locationtime.textContent = data.timezone;
+                    let hum2per = data.currently.humidity * 100;
+                    humidpercent.textContent = hum2per;
+
+
             });
         });
     };
