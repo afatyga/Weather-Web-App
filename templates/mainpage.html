@@ -35,7 +35,7 @@ gapi.load('auth2', function() {
 <script> // This script is to display the graph of temperature and humidity
 
 function signIn(){ 
-	var tempReal = {{temp|tojson}};
+	var allData = {{data|tojson}};
 	var chart = new CanvasJS.Chart("tempgraph", {
 	animationEnabled: true,
 	theme: "light2", // theme of the graph
@@ -60,7 +60,7 @@ function signIn(){
         dataPoints: [
         { x: 1, y: 80 },
         { x: 2, y: 96},
-        { x: tempReal[0], y: 70 },
+        { x: allData[0], y: 70 },
         { x: 4, y: 80 },
         { x: 5, y: 80 }
         ]
@@ -69,7 +69,7 @@ function signIn(){
 
 	});
 	chart.render();
-};
+
 
 function onFailure(error) {
     console.log(error);
