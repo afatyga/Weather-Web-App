@@ -2,47 +2,41 @@
 <html>
 <body>
 
-<p>Check your location.</p>
+<div class = "location">
+    <h1 class="location-timezone"></h1>
+</div>
+<div class = "temperature">
+    <h2 class="degree"></h2>
+    <span class="temp-type">°F</span>
+</div>
+<script type="text/javascript">
+    window.addEventListener('load', () => {
+    let long;
+    let lat;
+    let tempdegree = document.querySelector(".degree");
+    let locationtime = document.querySelector(".location-timezone");
 
-<button onclick="Location()">Search</button>
-<p id="demo"></p>
-<p>Date/Time: <span id="datetime"></span></p>
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+            long = position.coords.longitude;
+            lat = position.coords.latitude;
 
-<script> // This script is to display real time on the page
-var dt = new Date();
-document.getElementById("datetime").innerHTML = ( (("0"+(dt.getMonth()+1)).slice(-2))+"."+ ("0"+dt.getDate()).slice(-2)) +"."+ (dt.getFullYear()) +" "+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2));
-</script>
-<script> // This script is to get the device location and display on the page => I will try my best to convert to map images
-var x = document.getElementById("demo");
+            const proxy = 'https://cors-anywhere.herokuapp.com/';
+            const api = proxy+'https://api.darksky.net/forecast/e7d8d22d4d7468930b5ffc9d4cb56a9e/'+lat+','+long;
 
-function Location() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else {
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
-}
-
-function showPosition(position) {
-    var latitude = position.coords.latitude;
-    var longitude = position.coords.longitude;
-  x.innerHTML = "Latitude: " + latitude +
-  "<br>Longitude: " + longitude + "<br>Location Weather: " //+ getweatherdata(latitude,longitude)
-    var exclude = "?exclude=minutely,hourly,daily,alerts,flags";
-    var url = "https://api.darksky.net/forecast/e7d8d22d4d7468930b5ffc9d4cb56a9e/" + lat + "," + lon + exclude + "?units=si";
-}
- /*
-function getweatherdata(lat,lon) {
-    var exclude = "?exclude=minutely,hourly,daily,alerts,flags";
-    var url = "https://api.darksky.net/forecast/e7d8d22d4d7468930b5ffc9d4cb56a9e/" + lat + "," + lon + exclude + "?units=si";
-
-    $.getJSON(url, function(forecast) {
-        console.log(forecast)
-    });
-
-}
-*/
-
+            fetch(api)
+                .then(response => {
+                    return response.json();
+            })
+                .then(data => {
+                    console.log(data);
+                    const {temperature} = data.currently;
+                    tempdegree.textContent = temperature;
+                    locationtime.textContent = data.timezone;
+            });
+        });
+    };
+});
 </script>
 
 </body>

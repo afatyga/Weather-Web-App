@@ -138,8 +138,8 @@ def root3():
         for row in all_data:
             data.append(row[1])
             data.append(row[0])
-            temp.append(row[1])
-            humidity.append(row[0])
+            temp.append(row[0])
+            humidity.append(row[1])
 #            data.append({'x': row[0], 'y': row[1]})
     length = len(temp)
     return render_template(
