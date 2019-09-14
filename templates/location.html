@@ -2,81 +2,13 @@
 <html>
 <body>
 
-<p id="demo"></p>
-<p>Date/Time: <span id="datetime"></span></p>
-
-<script> // This script is to display real time on the page
-var dt = new Date();
-document.getElementById("datetime").innerHTML = ( (("0"+(dt.getMonth()+1)).slice(-2))+"."+ ("0"+dt.getDate()).slice(-2)) +"."+ (dt.getFullYear()) +" "+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2));
-</script>
-<script> // This script is to get the device location and display on the page => I will try my best to convert to map images
-var x = document.getElementById("demo");
-
-var getWeather = function Location() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function (position) {
-        var latitude = position.coords.latitude;
-        var longitude = position.coords.longitude;
-        getweatherdata(latitude, longitude)
-    })
-  } else {
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
-}
-
-/*
-function showPosition(position) {
-    var latitude = position.coords.latitude;
-    var longitude = position.coords.longitude;
-    x.innerHTML = "Latitude: " + latitude + "<br>Longitude: " + longitude;
-}
-*/
-
-</script>
-<div id="current-weather-detail">
-    <p id="current-humidity"></p>
-    <p id="cyrrent-temperature"></p>
-    <button id="getWeather" onclick="getWeather()">Get Weather!</button>
+<div class = "location">
+    <h1 class="location-timezone"></h1>
 </div>
-<p id="weather-summary"></p>
-<script>
-var humidity;
-var temperature;
-var weatherSummary;
-
-window.onload = function () {
-    humidity = document.getElementById("current-humidity");
-    temperature = document.getElementById("current-temperature");
-    weatherSummary = document.getElementById("weather-summary");
-}
-
-function humidity2percentage(humid) {
-    return Math.round(humid * 100);
-}
-
-function knots2km(knot) {
-    return Math.round(knot * 1.852);
-}
-
-function getweatherdata() {
-    var lat = position.coords.latitude;
-    var lon = position.coords.longitude;
-    var url = 'https://api.darksky.net/forecast/e7d8d22d4d7468930b5ffc9d4cb56a9e/'+ lat + ',' + lon + '?format=jsonp&callback=displayWeather';
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src = url;
-    document.getElementsByTagName("head")[0].appendChild(script);
-    displayWeather(object)
-}
-
-var object;
-
-function displayWeather(object) {
-    humidity.innerHTML = "Humidity: " + humiditytopercentage(object.currently.humidity) + "%";
-    temperature.innerHTML = "Temperature: " + object.currently.temperature + "F";
-    weatherSummary.innerHTML = "Current Location: " + object.timezone + " <br/> <br/> Weather Summary: " + object.currently.summary;
-    console.log(object);
-}
-</script>
+<div class = "temperature">
+    <h2 class="degree"></h2>
+    <span class="temp-type">°F</span>
+</div>
+<script src = "temp.js"></script>
 </body>
 </html>
