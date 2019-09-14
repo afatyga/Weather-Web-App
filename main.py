@@ -102,26 +102,48 @@ def root2():
     return render_template(
         'mainpage.html', temp=temp, humidity=humidity, length=length, data=data)
 
-@app.route('/temp')
-def root():
-    temp = []
-    humidity = []
-    data = []
-    with db.connect() as conn:
-        all_data = conn.execute("SELECT * FROM entries;").fetchall()
-        for row in all_data:
-            temp.append(row[0])
-            humidity.append(row[1])
-            data.append({'x': row[0], 'y': row[1]})
-    length = len(temp)
-    return render_template(
-        'temptest.html', temp=temp, humidity=humidity, length=length, data=data)
+#@app.route('/temp')
+#def root():
+#    temp = []
+#    humidity = []
+#    data = []
+#    with db.connect() as conn:
+#        all_data = conn.execute("SELECT * FROM entries;").fetchall()
+ #       for row in all_data:
+  #          temp.append(row[0])
+   #         humidity.append(row[1])
+   #         data.append({'x': row[0], 'y': row[1]})
+  #  length = len(temp)
+  #  index1 = randInt(0,15) #gets random values from the database to send over
+  #  index2 = randInt(0,15)
+  #  index3 = randInt(0,15)
+  #  index4 = randint(0,15)
+  #  index5 = randint(0,15)
+  #  return render_template(
+  #      'temptest.html', hum1 = humidity[index1], temp1 = temp[index1], hum2 = humidity[index2], temp2 = temp[index2], hum3 = humidity[index3], temp3 = temp[index3], hum4 = humidity[index4], temp4 = temp[index4], hum5 = humidity[index5], temp5 = temp[index5],data=data)
 
 @app.route('/location')
 def location():
     return render_template(
         'location.html')
 
+
+@app.route('/temp')
+def root3():
+    temp = []
+    humidity = []
+    data = []
+    with db.connect() as conn:
+        all_data = conn.execute("SELECT * FROM entries;").fetchall()
+        for row in all_data:
+            data.append(row[1])
+            data.append(row[0])
+            temp.append(row[1])
+            humidity.append(row[0])
+#            data.append({'x': row[0], 'y': row[1]})
+    length = len(temp)
+    return render_template(
+        'temptest.html', temp=temp, humidity=humidity, length=length, data=json.dumps(data))
 
 if __name__ == '__main__':
     app.run()

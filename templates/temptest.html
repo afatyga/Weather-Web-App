@@ -3,15 +3,22 @@
 <head>
 <p id="demo"></p>
 
-<script>
-window.onload = function () {
 
-    var hum = document.getElementByName('humidity');
-    var temp = document.getElementByName('temp');
+<p> temp1</p>
+
+<script>
+
+//    var hum = document.getElementByName('hum1');
+  //  var temp = document.getElementByName('temp');
 
 
     var x = document.getElementById("demo");
-    x.innerHTML = "hum is " + hum + "does this work " + temp; 
+   // var a = {{hum1}};
+   // x.innerHTML(a);
+    var allData = {{data}};
+//    var humReal = {{humidity|json}};
+
+    //x.innerHTML = "hum is " + hum + "does this work " + temp; 
 
     var chart = new CanvasJS.Chart("tempgraph", {
 	animationEnabled: true,
@@ -35,11 +42,18 @@ window.onload = function () {
       {
         type: "scatter",
         dataPoints: [
-        { x: 1, y: 80 },
-        { x: 2, y: 96},
-        { x: 3, y: 70 },
-        { x: 4, y: 80 },
-        { x: 5, y: 80 }
+        { x: allData[0], y: allData[1]},
+        { x: allData[2], y: allData[3]},
+        { x: allData[4], y: allData[5]},
+        { x: allData[6], y: allData[7]},
+        { x: allData[8], y: allData[9]},
+        { x: allData[10], y: allData[11]}
+     //   { x: allData[12], y: allData[13]},
+     //   { x: allData[14], y: allData[15]},
+    //    { x: allData[16], y: allData[17]},
+   //     { x: allData[18], y: allData[19]},
+    //    { x: allData[20], y: allData[21]},
+  //      { x: allData[22], y: allData[23]}
         ]
       }
     ]
@@ -47,7 +61,7 @@ window.onload = function () {
 });
 chart.render();
 
-}
+
 </script>
 </head>
 <body>

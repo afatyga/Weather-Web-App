@@ -28,6 +28,8 @@ function showPosition(position) {
     var longitude = position.coords.longitude;
   x.innerHTML = "Latitude: " + latitude +
   "<br>Longitude: " + longitude + "<br>Location Weather: " //+ getweatherdata(latitude,longitude)
+    var exclude = "?exclude=minutely,hourly,daily,alerts,flags";
+    var url = "https://api.darksky.net/forecast/e7d8d22d4d7468930b5ffc9d4cb56a9e/" + lat + "," + lon + exclude + "?units=si";
 }
  /*
 function getweatherdata(lat,lon) {

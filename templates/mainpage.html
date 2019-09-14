@@ -35,6 +35,7 @@ gapi.load('auth2', function() {
 <script> // This script is to display the graph of temperature and humidity
 
 function signIn(){ 
+	var tempReal = {{temp|tojson}};
 	var chart = new CanvasJS.Chart("tempgraph", {
 	animationEnabled: true,
 	theme: "light2", // theme of the graph
@@ -59,7 +60,7 @@ function signIn(){
         dataPoints: [
         { x: 1, y: 80 },
         { x: 2, y: 96},
-        { x: 3, y: 70 },
+        { x: tempReal[0], y: 70 },
         { x: 4, y: 80 },
         { x: 5, y: 80 }
         ]
@@ -68,7 +69,7 @@ function signIn(){
 
 	});
 	chart.render();
-	}
+};
 
 function onFailure(error) {
     console.log(error);
@@ -112,6 +113,10 @@ function Location() {
 function showPosition(position) {
   x.innerHTML = "Latitude: " + position.coords.latitude +
   "<br>Longitude: " + position.coords.longitude;
+ // var url = "https://api.darksky.net/forecast/e7d8d22d4d7468930b5ffc9d4cb56a9e/" + position.coords.latitude + "," + position.coords.longitude;
+ // $.getJSON(url, function(data) {
+  //	x.innerHTML = "Current Temperature: " + fahrenheit + "°F" + "<br>" + description + "<br>With a Wind Speed of " + wind + "and " + humidity + "humidity"
+  	//}
 }
 
 
