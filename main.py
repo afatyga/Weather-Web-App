@@ -143,7 +143,23 @@ def root3():
 #            data.append({'x': row[0], 'y': row[1]})
     length = len(temp)
     return render_template(
-        'temptest.html', temp=temp, humidity=humidity, length=length, data=json.dumps(data))
+        'temptest.html', temp=temp, humidity=humidity, length=length, data=data)
+
+
+
+@app.route('/pass')
+def root4():
+    temp = []
+    with db.connect() as conn:
+        all_data = conn.execute("SELECT * FROM entries;").fetchall()
+        for row in all_data:
+            temp.append(row[0])
+
+    return render_template(
+        'passdata.html', temp=temp)
+
+
+
 
 @app.route('/geo')
 def geo():

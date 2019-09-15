@@ -3,6 +3,11 @@
 <head>
 <p id="demo"></p>
 
+<u2 class="temp">
+    {% for t in temp %}
+        temp is <b>{{t}}</b>
+    {% endfor %}
+</u2>
 
 <p> temp1</p>
 
@@ -11,11 +16,13 @@
 //    var hum = document.getElementByName('hum1');
   //  var temp = document.getElementByName('temp');
 
+window.onload = function () {
 
     var x = document.getElementById("demo");
    // var a = {{hum1}};
    // x.innerHTML(a);
-    var allData = {{data}};
+    var allData = {{temp|tojson}};
+//    x.innerHTML(allData[0]);
 //    var humReal = {{humidity|json}};
 
     //x.innerHTML = "hum is " + hum + "does this work " + temp; 
@@ -41,19 +48,12 @@
 	data: [ // input data to plot the graph -> need to git data from else where
       {
         type: "scatter",
-        dataPoints: [
-        { x: allData[0], y: allData[1]},
-        { x: allData[2], y: allData[3]},
-        { x: allData[4], y: allData[5]},
-        { x: allData[6], y: allData[7]},
-        { x: allData[8], y: allData[9]},
-        { x: allData[10], y: allData[11]}
-     //   { x: allData[12], y: allData[13]},
-     //   { x: allData[14], y: allData[15]},
-    //    { x: allData[16], y: allData[17]},
-   //     { x: allData[18], y: allData[19]},
-    //    { x: allData[20], y: allData[21]},
-  //      { x: allData[22], y: allData[23]}
+        dataPoints:[
+        { x: Math.random(), y: allData[0] },
+        { x: 2, y: 55},
+        { x: 3, y: 66 },
+        { x: 4, y: 42 },
+        { x: 5, y: 80 }
         ]
       }
     ]
@@ -61,6 +61,7 @@
 });
 chart.render();
 
+}
 
 </script>
 </head>
