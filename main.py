@@ -145,5 +145,9 @@ def root3():
     return render_template(
         'temptest.html', temp=temp, humidity=humidity, length=length, data=json.dumps(data))
 
+@app.route('/geo')
+def geo():
+    return render_template('geolocation.html')
+
 if __name__ == '__main__':
     app.run()
