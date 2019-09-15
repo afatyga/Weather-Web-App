@@ -161,5 +161,9 @@ def root4():
 
 
 
+@app.route('/geo')
+def geo():
+    return render_template('geolocation.html')
+
 if __name__ == '__main__':
     app.run()
