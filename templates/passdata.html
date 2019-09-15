@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<p id="demo"></p>
+
+<u2 class="temp">
+    {% for t in temp %}
+        temp is <b>{{t}}</b>
+    {% endfor %}
+</u2>
+
+<p> testing passing data</p>
+
+<script>
+
+var x = document.getElementById("demo");
+
+
+var t = {{temp| tojson|safe}};
+//for (var i = t.length - 1; i >= 0; i--) {
+//	x.innerHTML = "The temp is" + t[i] + "and the random number is " + Math.random();
+//}
+x.innerHTML = "first" + t[0] +  "second" + t[1] + "3rd" + t[2] + "4th" + t[3];
+
+
+
+</script>
+</head>
+<body>
+<div id="tempgraph" style="height: 300px; width: 50%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+</html>
