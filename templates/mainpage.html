@@ -25,7 +25,6 @@
             var auth = gapi.auth2.getAuthInstance();
             auth.signOut().then(function () {
  	            window.location.reload();
-        //  console.log('Signed out!');
         });
         }
     </script>
@@ -52,9 +51,9 @@ function signIn(){
 	animationEnabled: true,
 	theme: "light2", // theme of the graph
 	title:{
-		text: "Temperature and Humidity Graph" // Title of the graph
+		text: "Temperature vs Humidity" // Title of the graph
 	},
-    toolTip: { // Create a little box when the point on the graph has been touch
+    toolTip: { // Create a little box when the point on the graph is hovered over
 	    shared: true,
         content: "<strong>Temperature:</strong> {y} °F </br><strong>Humidity:</strong> {x} %"
     },
@@ -70,21 +69,21 @@ function signIn(){
       {
         type: "scatter",
         dataPoints: [
-        { x: Math.random(), y: t[0] },
-        { x: Math.random(), y: t[1] },
-        { x: Math.random(), y: t[2] },
-        { x: Math.random(), y: t[3] },
-        { x: Math.random(), y: t[5] },
-        { x: Math.random(), y: t[6] },
-        { x: Math.random(), y: t[7] },       
-        { x: Math.random(), y: t[8] },
-        { x: Math.random(), y: t[9] },
-        { x: Math.random(), y: t[10] },
-        { x: Math.random(), y: t[11] },
-        { x: Math.random(), y: t[12] },
-        { x: Math.random(), y: t[13] },
-        { x: Math.random(), y: t[14] },
-        { x: Math.random(), y: t[15] }
+        { x: (Math.random() * 100), y: t[0] },
+        { x: (Math.random() * 100), y: t[1] },
+        { x: (Math.random() * 100), y: t[2] },
+        { x: (Math.random() * 100), y: t[3] },
+        { x: (Math.random() * 100), y: t[5] },
+        { x: (Math.random() * 100), y: t[6] },
+        { x: (Math.random() * 100), y: t[7] },       
+        { x: (Math.random() * 100), y: t[8] },
+        { x: (Math.random() * 100), y: t[9] },
+        { x: (Math.random() * 100), y: t[10] },
+        { x: (Math.random() * 100), y: t[11] },
+        { x: (Math.random() * 100), y: t[12] },
+        { x: (Math.random() * 100), y: t[13] },
+        { x: (Math.random() * 100), y: t[14] },
+        { x: (Math.random() * 100), y: t[15] }
         ]
       }
     ]
