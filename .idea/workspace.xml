@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8ddac01b-025f-4701-8e7d-67c6f352f634" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/templates/mainpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mainpage.html" afterDir="false" />
-    </list>
+    <list default="true" id="8ddac01b-025f-4701-8e7d-67c6f352f634" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,23 +41,6 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="2019-mini-s47" type="Python.FlaskServer">
-      <module name="2019-mini-s47" />
-      <option name="target" value="$PROJECT_DIR$/main.py" />
-      <option name="targetType" value="PATH" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <method v="2" />
-    </configuration>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -72,7 +53,7 @@
       <updated>1568159560643</updated>
       <workItem from="1568159562794" duration="6161000" />
       <workItem from="1568238855639" duration="7784000" />
-      <workItem from="1568332048551" duration="29812000" />
+      <workItem from="1568332048551" duration="30068000" />
     </task>
     <servers />
   </component>
