@@ -18,9 +18,10 @@
     <h1>Weather Fun!</h1>
     <p id="weather"></p>
     <div id="signin" class="g-signin2" data-onsuccess="signIn"></div>
-    <!--button type = "button" id ="signout" href="#" onclick="signOut();'width': 50, 'height': 50">Sign out</button>-->
+    <a id ="signout" href="#" onclick="signOut();">Sign out</a>
 
-    <!--<script>
+    <!--This script is used for logging out the user-->
+    <script>
         function signOut() { //log out user and turn off graph
             var auth = gapi.auth2.getAuthInstance();
             auth.signOut().then(function () {
@@ -28,7 +29,7 @@
         //  console.log('Signed out!');
         });
         }
-    </script>-->
+    </script>
 
     <!--This script is to change the original format of sign in button-->
     <script>
@@ -43,7 +44,6 @@
 
     <!-- This script is used for google account sign in function -->
     <script>
-        //function signIn(){
         window.onload = function () {
 
 	    var allTemp = {{temp|tojson|safe}};
@@ -77,18 +77,18 @@
             ]
         }]
 	    });
-	    chart.render();}
+	    chart.render();};
 
         function onFailure(error) {
         console.log(error);
         }
     </script>
 
-<!-- Here is to display the temperature and humidity graph-->
+    <!-- Here is to display the temperature and humidity graph-->
     <div id="tempgraph" style="height: 300px; width: 50%;"></div>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
-<!-- This <div> is to display the timezone, temperature, and humidity on web page-->
+    <!-- This <div> is to display the timezone, temperature, and humidity on web page-->
     <div class = "location">
         <h1 class="location-timezone"></h1>
     </div>
@@ -101,7 +101,7 @@
         <span class="percent">%</span>
     </div>
 
-<!-- This script is to get the data from Dark Sky Api as well as the device's location -->
+    <!-- This script is to get the data from Dark Sky Api as well as the device's location -->
     <script type="text/javascript">
         window.addEventListener('load', () => {
         let long;
@@ -131,7 +131,7 @@
                         humidpercent.textContent = hum2per; // Get converted humidity data and sned to html
                     });
                 });
-            };
+            }
         });
     </script>
 
