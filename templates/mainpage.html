@@ -1,6 +1,11 @@
 <!doctype html>
 <html>
 <head>
+    <style>
+        body {
+            background: linear-gradient(blue);
+        }
+    </style>
 
     <title>wEaThEr FuN</title>
     <meta name="google-signin-client_id" content="290222337069-bu7nk4bu89fs0gqs6vr1jebnqp6aas59.apps.googleusercontent.com">
@@ -81,7 +86,7 @@
                             tempdegree.textContent = data.currently.temperature; // Input the temperature from data to html
                             let hum2per = data.currently.humidity * 100; // Function to transform the decimal points to percentage of the humidity
                             humidpercent.textContent = hum2per; // Get converted humidity data and send to html
-                            detail.textContent = data.summary;
+                            detail.textContent = data.currently.summary;
 
                         });
                     });
