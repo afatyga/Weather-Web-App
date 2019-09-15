@@ -7,7 +7,7 @@ Website: https://ec463-group47.appspot.com/
 <br/> Please make sure to use https so that the connection is considered secure by your browser and allows for location to be used
 <br/>
 <br/>
-The web app uses Python (Flask) and HTML. Google Cloud has been used to allow for multiple users at the same time, a database was created on Cloud SQL (using Google Cloud) which is read in main.py and sent to the HTML mainpage. The sensor receives temperature data from the database but the values of humidity are randomized so that the sensor varies for each user. <br/>
+The web app uses Python (Flask) and HTML. Google Cloud has been used to allow for multiple users at the same time, a database was created on Cloud SQL (using Google Cloud) which is read in main.py and sent to the HTML mainpage. The sensor receives temperature data from the database but the values of humidity are randomized so that the sensor varies for each user. Upon log out, the location, map and user weather is still displayed because that is that uses the location permission and does not have to do with logging into Google.<br/>
 APIs being used are Dark Sky for the user's weather and Google Maps for Javascript to show the map of the user's location.
 <br/>
 <br/>
@@ -39,7 +39,7 @@ The meeting on 9/15 concluded sprint 2 and began testing for sprint 2 and front 
 9/15 until the deadline will be spent on testing and improving the front end's appearance
 <br/><br/>
 Tests:
-Due to the way we have formatted our app, there is little user input meaning that all the user does is log in, allow their location to be used and log out. We have tested this by using a variety of emails, logging in and out multiple times, and checking if the map is correct. When a user log outs, the page no longer displays their current weather and sensor data meaning this information is only displayed when the user is logged in.
+Due to the way we have formatted our app, there is little user input meaning that all the user does is log in, allow their location to be used and log out. We have tested this by using a variety of emails, logging in and out multiple times, and checking if the map is correct. When a user log outs, the page no longer displays sensor data meaning this information is only displayed when the user is logged in. 
 <br/><br/>
 How to use the web app:
 -Go to the link listed above
