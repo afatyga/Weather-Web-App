@@ -17,9 +17,7 @@ db_pass = "47"
 db_name = "sensorData"  # database it's reading from!
 cloud_sql_connection_name = "ec463-group47:northamerica-northeast1:instance"
 
-db = sqlalchemy.create_engine(
-    # Equivalent URL:
-    # mysql+pymysql://<db_user>:<db_pass>@/<db_name>?unix_socket=/cloudsql/<cloud_sql_instance_name>
+db = sqlalchemy.create_engine( #creating a connection to the database tha can be used
     sqlalchemy.engine.url.URL(
         drivername='mysql+pymysql',
         username=db_user,
@@ -36,24 +34,16 @@ db = sqlalchemy.create_engine(
 )
 
 
-@app.route('/')
-def root2():
+@app.route('/') #creates the flask html route
+def root():
     temp = []
-
-    with db.connect() as conn:
-        all_data = conn.execute("SELECT * FROM entries;").fetchall()
+    with db.connect() as conn: #this is connecting to the database to fetch data from it
+        all_data = conn.execute("SELECT * FROM entries;").fetchall() #sql command being executed and then fetch on that
         for row in all_data:
-            temp.append(row[0])
+            temp.append(row[0]) #adding to the temp list
     return render_template(
         'mainpage.html', temp=temp)
 
-
-@app.route('/geo')
-def geo():
-    return render_template('geolocation.html')
-
-@app.route('/test')
-def test():
     return render_template('test.html')
 
 

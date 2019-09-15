@@ -2,11 +2,11 @@
 <html>
 <head>
 
-    <title>wEaThEr</title>
+    <title>wEaThEr FuN</title>
     <meta name="google-signin-client_id" content="290222337069-bu7nk4bu89fs0gqs6vr1jebnqp6aas59.apps.googleusercontent.com">
 
     <!-- This script is about google account single sign in -->
-    <script src="https://apis.google.com/js/platform.js" async defer>
+    <script src="https://apis.google.com/js/platform.js" async defer> 
         gapi.load('auth2', function() {
 	        gapi.auth2.init();
         });
@@ -14,10 +14,10 @@
 </head>
 <body>
     <!-- Displaying on the main page -->
-    <h1>Your Weather, Our Sensor</h1>
+    <h1 align="center">Your Weather, Our Sensor</h1>
     <p id="weather"></p>
-    <div id="signin" class="g-signin2" data-onsuccess="signIn"></div>
-    <a id ="signout" href="#" onclick="signOut();">Sign out</a>
+    <div id="signin" class="g-signin2" data-onsuccess="signIn" align="center"></div>
+    <a id ="signout" href="#" onclick="signOut();"align="center">Sign out</a>
 
     <!--This script is used for logging out the user-->
     <script>
@@ -39,7 +39,7 @@
         }
     </script>
 
-    <div id="tempgraph" style="height: 400px; width: 80%;"></div>
+    <div id="tempgraph" style="height: 400px; width: 80%;"align="center"></div>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
 <script> // This script is to display the graph of temperature and humidity
@@ -54,7 +54,7 @@ function signIn(){
 	animationEnabled: true,
 	theme: "light2", // theme of the graph
 	title:{
-		text: "Temperature vs Humidity" // Title of the graph
+		text: "Temperature vs. Humidity" // Title of the graph
 	},
     toolTip: { // Create a little box when the point on the graph is hovered over
 	    shared: true,
@@ -71,7 +71,7 @@ function signIn(){
 	data: [ // input data to plot the graph -> need to git data from else where
       {
         type: "scatter",
-        dataPoints: [
+        dataPoints: [ //y (temperature) comes from the database and x is randomized values so that there are multiple sensors per user
         { x: (Math.random() * 100), y: t[0] },
         { x: (Math.random() * 100), y: t[1] },
         { x: (Math.random() * 100), y: t[2] },
