@@ -1,0 +1,19 @@
+name: ci
+
+on: [push, pull_request]
+
+jobs:
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-python@v1
+      with:
+        python-version: '3.x'
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - run: npm --global install acorn
+    - run: |
+        echo -e "from pathlib import Path; import subprocess \nfor file in Path('.').glob('*.js'): subprocess.check_call(['acorn', '--silent', str(file)])" | python
