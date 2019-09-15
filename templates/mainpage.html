@@ -63,11 +63,11 @@ function signIn(){
 	animationEnabled: true,
 	theme: "light2", // theme of the graph
 	title:{
-		text: "Temperature and Humidity Graph" // Title of the graph
+		text: "Sensor Readings" // Title of the graph
 	},
     toolTip: { // Create a little box when the point on the graph has been touch
 	    shared: true,
-        content: "<strong>Temperature:</strong> {y[0]} °F </br><strong>Humidity:</strong> {x[0]} %"
+        content: "<strong>Temperature:</strong> {y} °F </br><strong>Humidity:</strong> {x} %"
     },
     axisY: { // formatting y-axis
 	    title: "Temperature",
@@ -102,7 +102,6 @@ function signIn(){
 
 	});
 	chart.render();
-//}
 }
 
 
@@ -111,7 +110,7 @@ function onFailure(error) {
 }
 </script>
 
-    <div id="tempgraph" style="height: 300px; width: 50%;"></div>
+    <div id="tempgraph" style="height: 400px; width: 80%;"></div>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
     <!-- This <div> is to display the timezone, temperature, and humidity on web page-->
