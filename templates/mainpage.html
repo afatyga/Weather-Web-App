@@ -40,20 +40,19 @@
     
     <!-- This <div> is to display the timezone, temperature, and humidity on web page-->
     <!-- The <div> is to display the data reading from Dark Sky API -->
-    <div class = "location">
-        <p class="location-timezone"></p>
+    <div class = "info">
+        <span class = "first">In your current location, it is: </span>
+        <span class = "descript"></span>
     </div>
     <div class = "temperature">
+        <span class = "title1"> The current temperature is: </span>
         <span class="degree"></span>
         <span class="temp-type">°F</span>
     </div>
     <div class = "humidd">
+        <span class="title 2">The current humidity is: </span>
         <span class = "humid"></span>
         <span class="percent">%</span>
-    </div>
-    <div class = "info">
-        <span class = "first">The Weather is:</span>
-        <span class = "descript"></span>
     </div>
 
     <!-- This script is to get the data from Dark Sky Api as well as the device's location -->
@@ -63,7 +62,6 @@
             let lat; // latitude
             let detail = document.querySelector(".descript"); // Description of the weather
             let tempdegree = document.querySelector(".degree"); // tempdegree => degree class
-            let locationtime = document.querySelector(".location-timezone"); // locationtime => location-timezone class
             let humidpercent = document.querySelector(".humid"); // humidpercent => humid class
 
             if(navigator.geolocation) { // Find the longitude and latitude of the device
@@ -81,7 +79,6 @@
                         .then(data => {
                             console.log(data);
                             tempdegree.textContent = data.currently.temperature; // Input the temperature from data to html
-                            locationtime.textContent = data.timezone; // Get timezone info from data and send to html
                             let hum2per = data.currently.humidity * 100; // Function to transform the decimal points to percentage of the humidity
                             humidpercent.textContent = hum2per; // Get converted humidity data and send to html
                             detail.textContent = data.summary;
