@@ -4,6 +4,12 @@
   <title>Group S47</title>
 
 
+<u2 class="humidity">
+    {% for t in allData %}
+        all data is <b>{{t}}</b>
+    {% endfor %}
+</u2>
+
 <meta name="google-signin-client_id" content="290222337069-bu7nk4bu89fs0gqs6vr1jebnqp6aas59.apps.googleusercontent.com">
 <script src="https://apis.google.com/js/platform.js" async defer>
 
@@ -35,7 +41,7 @@ gapi.load('auth2', function() {
 <script> // This script is to display the graph of temperature and humidity
 
 function signIn(){ 
-	var allData = {{data|tojson}};
+//	var allData = {{data|tojson}};
 	var chart = new CanvasJS.Chart("tempgraph", {
 	animationEnabled: true,
 	theme: "light2", // theme of the graph
@@ -60,7 +66,7 @@ function signIn(){
         dataPoints: [
         { x: 1, y: 80 },
         { x: 2, y: 96},
-        { x: allData[0], y: 70 },
+        { x: 3, y: 70 },
         { x: 4, y: 80 },
         { x: 5, y: 80 }
         ]
@@ -69,7 +75,7 @@ function signIn(){
 
 	});
 	chart.render();
-
+}
 
 function onFailure(error) {
     console.log(error);
