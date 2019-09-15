@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+  <title>Group S47</title>
+
+
+<meta name="google-signin-client_id" content="290222337069-bu7nk4bu89fs0gqs6vr1jebnqp6aas59.apps.googleusercontent.com">
+<script src="https://apis.google.com/js/platform.js" async defer>
+
+gapi.load('auth2', function() {
+	gapi.auth2.init();
+});
+</script>
+</head>
+
+<body>
+
+<h1>Weather Fun!</h1>
+
+
+<div id="signin" class="g-signin2" data-onsuccess="signIn"></div>
+<button type = "button" id ="signout" href="#" onclick="signOut();'width': 50, 'height': 50">Sign out</button>
+
+<script>
+  function signOut() { //log out user and turn off graph
+    var auth = gapi.auth2.getAuthInstance();
+    auth.signOut().then(function () {
+      console.log('Signed out!');
+    });
+
+  }
+</script>
+
+<script> // This script is to display the graph of temperature and humidity
+
+function signIn(){
+	var chart = new CanvasJS.Chart("tempgraph", {
+	animationEnabled: true,
+	theme: "light2", // theme of the graph
+	});
+	chart.render();
+	}
+
+function onFailure(error) {
+    console.log(error);
+}
+</script>
+
+<script>
+    function renderButton() {
+        gapi.signin2.render('signin', {
+            'width' : 50,
+            'height': 50,
+            'onfailure' : onFailure
+        })
+    }
+</script>
+
+</body>
+</html>
+
