@@ -1,39 +1,43 @@
 <!doctype html>
 <html>
 <head>
-  <title>Group S47</title>
 
+    <title>Group S47</title>
+    <meta name="google-signin-client_id" content="290222337069-bu7nk4bu89fs0gqs6vr1jebnqp6aas59.apps.googleusercontent.com">
 
-
-<meta name="google-signin-client_id" content="290222337069-bu7nk4bu89fs0gqs6vr1jebnqp6aas59.apps.googleusercontent.com">
-<script src="https://apis.google.com/js/platform.js" async defer>
-
-gapi.load('auth2', function() {
-	gapi.auth2.init();
-});
-</script>
+    <!-- This script is about google account single sign in -->
+    <script src="https://apis.google.com/js/platform.js" async defer>
+        gapi.load('auth2', function() {
+	        gapi.auth2.init();
+        });
+        </script>
 </head>
 <body>
+    <!-- Displaying on the main page -->
+    <h1>Weather Fun!</h1>
+    <p id="weather"></p>
+    <div id="signin" class="g-signin2" data-onsuccess="signIn"></div>
+    <!--button type = "button" id ="signout" href="#" onclick="signOut();'width': 50, 'height': 50">Sign out</button>-->
 
-<h1>Weather Fun!</h1>
+    <!--<script>
+        function signOut() { //log out user and turn off graph
+            var auth = gapi.auth2.getAuthInstance();
+            auth.signOut().then(function () {
+ 	            window.location.reload();
+        //  console.log('Signed out!');
+        });
+        }
+    </script>-->
 
-<p id="weather"></p>
-
-<div id="signin" class="g-signin2" data-onsuccess="signIn"></div>
-<!--button type = "button" id ="signout" href="#" onclick="signOut();'width': 50, 'height': 50">Sign out</button>-->
-
-<!--<script>
-  function signOut() { //log out user and turn off graph
-    var auth = gapi.auth2.getAuthInstance();
-    auth.signOut().then(function () {
- 	   window.location.reload();
-
-    //  console.log('Signed out!');
-    });
-
-  }
+<script>
+    function renderButton() {
+        gapi.signin2.render('signin', {
+            'width' : 50,
+            'height': 50,
+            'onfailure' : onFailure
+        })
+    }
 </script>
--->
 
 <script> // This script is to display the graph of temperature and humidity
 
@@ -94,64 +98,59 @@ function onFailure(error) {
     console.log(error);
 }
 </script>
-<script>
-    function renderButton() {
-        gapi.signin2.render('signin', {
-            'width' : 50,
-            'height': 50,
-            'onfailure' : onFailure
-        })
-    }
-</script>
 
-<div id="tempgraph" style="height: 300px; width: 50%;"></div>
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
-<!-- This <div> is to display the timezone, temperature, and humidity on webpage -->
-<div class = "location">
-    <h1 class="location-timezone"></h1>
-</div>
-<div class = "temperature">
-    <h2 class="degree"></h2>
-    <span class="temp-type">°F</span>
-</div>
-<div class = "humidd">
-    <h3 class = "humid"></h3>
-    <span class="percent">%</span>
-</div>
+    <!--This script is to change the original format of sign in button-->
+<!-- Here is to display the temperature and humidity graph-->
+    <div id="tempgraph" style="height: 300px; width: 50%;"></div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+<!-- This <div> is to display the timezone, temperature, and humidity on web page-->
+    <div class = "location">
+        <h1 class="location-timezone"></h1>
+    </div>
+    <div class = "temperature">
+        <h2 class="degree"></h2>
+        <span class="temp-type">°F</span>
+    </div>
+    <div class = "humidd">
+        <h3 class = "humid"></h3>
+        <span class="percent">%</span>
+    </div>
+
 <!-- This script is to get the data from Dark Sky Api as well as the device's location -->
-<script type="text/javascript">
-    window.addEventListener('load', () => {
-    let long;
-    let lat;
-    let tempdegree = document.querySelector(".degree");
-    let locationtime = document.querySelector(".location-timezone");
-    let humidpercent = document.querySelector(".humid");
+    <script type="text/javascript">
+        window.addEventListener('load', () => {
+        let long;
+        let lat;
+        let tempdegree = document.querySelector(".degree");
+        let locationtime = document.querySelector(".location-timezone");
+        let humidpercent = document.querySelector(".humid");
 
-    if(navigator.geolocation) { // Find the longitude and latitude of the device
-        navigator.geolocation.getCurrentPosition(position => {
-            long = position.coords.longitude;
-            lat = position.coords.latitude;
+        if(navigator.geolocation) { // Find the longitude and latitude of the device
+            navigator.geolocation.getCurrentPosition(position => {
+                long = position.coords.longitude;
+                lat = position.coords.latitude;
 
-            const proxy = 'https://cors-anywhere.herokuapp.com/';
-            const api = proxy+'https://api.darksky.net/forecast/e7d8d22d4d7468930b5ffc9d4cb56a9e/'+lat+','+long; // Dark Sky API
+                const proxy = 'https://cors-anywhere.herokuapp.com/';
+                const api = proxy+'https://api.darksky.net/forecast/e7d8d22d4d7468930b5ffc9d4cb56a9e/'+lat+','+long; // Dark Sky API
 
-            fetch(api)
-                .then(response => {
-                    return response.json(); // Fetch the Dark Sky API and display json data
-            })
-                .then(data => {
-                    console.log(data);
-                    const {temperature} = data.currently; // Get "temperature information from data
-                    tempdegree.textContent = temperature; // Input the temperature from data to html
-                    locationtime.textContent = data.timezone; // Get timezone info from data and send to html
-                    let hum2per = data.currently.humidity * 100; // Function to transform the decimal points to percentage of the humidity
-                    humidpercent.textContent = hum2per; // Get converted humidity data and sned to html
-            });
+                fetch(api)
+                    .then(response => {
+                        return response.json(); // Fetch the Dark Sky API and display json data
+                })
+                    .then(data => {
+                        console.log(data);
+                        const {temperature} = data.currently; // Get "temperature information from data
+                        tempdegree.textContent = temperature; // Input the temperature from data to html
+                        locationtime.textContent = data.timezone; // Get timezone info from data and send to html
+                        let hum2per = data.currently.humidity * 100; // Function to transform the decimal points to percentage of the humidity
+                        humidpercent.textContent = hum2per; // Get converted humidity data and sned to html
+                    });
+                });
+            };
         });
-    };
-});
-</script>
+    </script>
 
 </body>
 </html>
