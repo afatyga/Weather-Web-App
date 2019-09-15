@@ -37,10 +37,11 @@ gapi.load('auth2', function() {
 
 <script> // This script is to display the graph of temperature and humidity
 
-//function signIn(){ 
+function signIn(){ 
+	var t = {{temp| tojson|safe}};
+
 	window.onload = function () {
 
-	var allTemp = {{temp|tojson|safe}};
 
 	var chart = new CanvasJS.Chart("tempgraph", {
 	animationEnabled: true,
@@ -64,18 +65,28 @@ gapi.load('auth2', function() {
       {
         type: "scatter",
         dataPoints: [
-        { x: 1, y: 80 },
-        { x: 2, y: 96},
-        { x: 3, y: 70 },
-        { x: 4, y: 80 },
-        { x: 5, y: 80 }
+        { x: Math.random(), y: t[0] },
+        { x: Math.random(), y: t[1] },
+        { x: Math.random(), y: t[2] },
+        { x: Math.random(), y: t[3] },
+        { x: Math.random(), y: t[5] },
+        { x: Math.random(), y: t[6] },
+        { x: Math.random(), y: t[7] },       
+        { x: Math.random(), y: t[8] },
+        { x: Math.random(), y: t[9] },
+        { x: Math.random(), y: t[10] },
+        { x: Math.random(), y: t[11] },
+        { x: Math.random(), y: t[12] },
+        { x: Math.random(), y: t[13] },
+        { x: Math.random(), y: t[14] },
+        { x: Math.random(), y: t[15] }
         ]
       }
     ]
 
 	});
 	chart.render();
-//}
+}
 }
 
 
