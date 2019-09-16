@@ -26,10 +26,10 @@ Weather API - user access to weather -> Danny<br/>
 Have sensor data come from the database to then be put into the plot -> Alex<br/>
 <br/>
 ## Meetings:<br/>
--9/8 Sunday Night<br/>
--9/10 Tuesday Night<br/>
--9/12 Thursday Night<br/>
--9/15 Sunday afternoon <br/>
+9/8 Sunday Night<br/>
+9/10 Tuesday Night<br/>
+9/12 Thursday Night<br/>
+9/15 Sunday afternoon <br/>
 <br/>
 On 9/8, we decided we wanted a web app in Flask and started working<br/>
 9/8 to 9/10 was spent setting up the cloud and the app itself<br/>
