@@ -11,7 +11,7 @@ The web app uses Python (Flask) and HTML. Google Cloud has been used to allow fo
 APIs being used are Dark Sky for the user's weather and Google Maps for Javascript to show the map of the user's location.
 <br/>
 <br/>
-Schedule: <br/>
+## Schedule: <br/>
 Set up front end and separate back end -> Danny <br/>
 Cloud service provider -> Alex <br/>
 --Put our started app on the cloud by Monday 9/9 <br/>
@@ -25,11 +25,11 @@ Receiving Location for the Weather API -> Danny <br/>
 Weather API - user access to weather -> Danny<br/>
 Have sensor data come from the database to then be put into the plot -> Alex<br/>
 <br/>
-Meetings:<br/>
--9/8 Sunday Night<br/>
--9/10 Tuesday Night<br/>
--9/12 Thursday Night<br/>
--9/15 Sunday afternoon <br/>
+## Meetings:<br/>
+9/8 Sunday Night<br/>
+9/10 Tuesday Night<br/>
+9/12 Thursday Night<br/>
+9/15 Sunday afternoon <br/>
 <br/>
 On 9/8, we decided we wanted a web app in Flask and started working<br/>
 9/8 to 9/10 was spent setting up the cloud and the app itself<br/>
@@ -38,11 +38,17 @@ The meeting on 9/12 tested sprint 1 and kicked off sprint 2 with the set goal to
 The meeting on 9/15 concluded sprint 2 and began testing for sprint 2 and front end work <br/>
 9/15 until the deadline will be spent on testing and improving the front end's appearance
 <br/><br/>
-Tests:
+## Tests:
 Due to the way we have formatted our app, there is little user input meaning that all the user does is log in, allow their location to be used and log out. We have tested this by using a variety of emails, logging in and out multiple times, and checking if the map is correct. When a user log outs, the page no longer displays sensor data meaning this information is only displayed when the user is logged in. 
 <br/><br/>
-How to use the web app:
--Go to the link listed above
--Click sign and sign into your google account
--allow your location to be used when the prompt pops up
--you will then see the plot of the data coming from the sensor and a map of your location with you current weather listed
+## How to use the web app:<br/>
+-Go to the link listed above <br/>
+-Click sign and sign into your google account <br/>
+-allow your location to be used when the prompt pops up <br/>
+-you will then see the plot of the data coming from the sensor and a map of your location with you current weather listed <br/>
+<br/>
+## Sources
+https://cloud.google.com/python/getting-started/hello-world
+https://cloud.google.com/sql/docs/mysql/connect-app-engine
+https://cloud.google.com/sql/docs/mysql/connect-app-engine#configuring
+https://developers.google.com/identity/sign-in/web/sign-in
