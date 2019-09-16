@@ -48,7 +48,7 @@ Due to the way we have formatted our app, there is little user input meaning tha
 -you will then see the plot of the data coming from the sensor and a map of your location with you current weather listed <br/>
 <br/>
 ## Sources
-https://cloud.google.com/python/getting-started/hello-world
-https://cloud.google.com/sql/docs/mysql/connect-app-engine
-https://cloud.google.com/sql/docs/mysql/connect-app-engine#configuring
+https://cloud.google.com/python/getting-started/hello-world <br/>
+https://cloud.google.com/sql/docs/mysql/connect-app-engine <br/>
+https://cloud.google.com/sql/docs/mysql/connect-app-engine#configuring <br/>
 https://developers.google.com/identity/sign-in/web/sign-in
