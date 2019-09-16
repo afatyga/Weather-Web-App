@@ -49,3 +49,6 @@ Due to the way we have formatted our app, there is little user input meaning tha
 <br/>
 ## Sources
 https://cloud.google.com/python/getting-started/hello-world
+https://cloud.google.com/sql/docs/mysql/connect-app-engine
+https://cloud.google.com/sql/docs/mysql/connect-app-engine#configuring
+https://developers.google.com/identity/sign-in/web/sign-in
