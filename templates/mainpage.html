@@ -50,16 +50,16 @@
 
     <!-- This <div> is to display the timezone, temperature, and humidity on web page-->
     <!-- The <div> is to display the data reading from Dark Sky API -->
-    <div class = "info">
+    <div id = "info" class = "info">
         <span style = "font-size: 18p; font-family:Courier New, Courier, monospace" class = "first">In your current location, it is </span>
         <span style = "font-size: 18p; font-family:Courier New, Courier, monospace" class = "descript"></span>
     </div>
-    <div class = "temperature">
+    <div id = "temp" class = "temperature">
         <span style = "font-size: 18p; font-family:Courier New, Courier, monospace" class = "title1"> The current temperature is </span>
         <span style = "font-size: 18p; font-family:Courier New, Courier, monospace" class="degree"></span>
         <span style = "font-size: 18p; font-family:Courier New, Courier, monospace" class="temp-type">°F</span>
     </div>
-    <div class = "humidd">
+    <div id = "humid" class = "humidd">
         <span style = "font-size: 18p; font-family:Courier New, Courier, monospace" class="title 2">The current humidity is </span>
         <span style = "font-size: 18p; font-family:Courier New, Courier, monospace" class = "humid"></span>
         <span style = "font-size: 18p; font-family:Courier New, Courier, monospace" class="percent">%</span>
@@ -133,8 +133,12 @@
               lng: position.coords.longitude
             };
 
+            var weatherinfo = document.getElementById(info);
+            var tempinfo = document.getElementById(temp);
+            var humidinfo = document.getElementById(humid);
+
             infoWindow.setPosition(pos);
-            infoWindow.setContent('This is you.');
+            infoWindow.setContent(weatherinfo, tempinfo, humidinfo);
             infoWindow.open(map);
             map.setCenter(pos);
           }, function() {
