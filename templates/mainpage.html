@@ -167,6 +167,8 @@
     <p> <br></p>
 </head>
 
+	<p id="sensorIntro"></p>
+
     <div id="tempgraph" style="height: 500px; width: 100%;"align="center"></div>
     <div align="center" id="tempgraph" style="height: 300px; width: 60%;"></div>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
@@ -179,6 +181,10 @@
 
 function signIn(){ 
 	var t = {{temp| tojson|safe}};
+
+	var x = document.getElementById("sensorIntro");
+	x.innerHTML = "And according to our sensor's readings from Room " + (Math.floor(Math.random() * 10)) + "in the previous month, we see... "
+
 
 //	window.onload = function () {
 
