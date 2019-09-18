@@ -66,6 +66,7 @@
     </div>
 
     <!-- This script is to get the data from Dark Sky Api as well as the device's location -->
+    <!--
     <script type="text/javascript">
         window.addEventListener('load', () => {
             let long; // longitude
@@ -98,6 +99,7 @@
                 }
             });
     </script>
+    -->
 
   <head>
     <title>Geolocation</title>
@@ -132,13 +134,13 @@
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
-
+            /*
             var weatherinfo = document.getElementById(info);
             var tempinfo = document.getElementById(temp);
             var humidinfo = document.getElementById(humid);
-
+            */
             infoWindow.setPosition(pos);
-            infoWindow.setContent(weatherinfo, tempinfo, humidinfo);
+            infoWindow.setContent('This is You.');
             infoWindow.open(map);
             map.setCenter(pos);
           }, function() {
@@ -179,7 +181,40 @@
 
 <script> // This script is to display the graph of temperature and humidity
 
-function signIn(){ 
+function signIn(){
+    
+        window.addEventListener('load', () => {
+            let long; // longitude
+            let lat; // latitude
+            let detail = document.querySelector(".descript"); // Description of the weather
+            let tempdegree = document.querySelector(".degree"); // tempdegree => degree class
+            let humidpercent = document.querySelector(".humid"); // humidpercent => humid class
+
+            if(navigator.geolocation) { // Find the longitude and latitude of the device
+              navigator.geolocation.getCurrentPosition(position => {
+                    long = position.coords.longitude;
+                    lat = position.coords.latitude;
+
+                    const proxy = 'https://cors-anywhere.herokuapp.com/';
+                    const api = proxy+'https://api.darksky.net/forecast/e7d8d22d4d7468930b5ffc9d4cb56a9e/'+lat+','+long; // Dark Sky API
+
+                    fetch(api)
+                        .then(response => {
+                            return response.json(); // Fetch the Dark Sky API and display json data
+                    })
+                        .then(data => {
+                            console.log(data);
+                            tempdegree.textContent = data.currently.temperature; // Input the temperature from data to html
+                            let hum2per = data.currently.humidity * 100; // Function to transform the decimal points to percentage of the humidity
+                            humidpercent.textContent = hum2per; // Get converted humidity data and send to html
+                            detail.textContent = data.currently.summary;
+
+                        });
+                    });
+                }
+            });
+
+
 	var t = {{temp| tojson|safe}};
 
 	var x = document.getElementById("sensorIntro");
