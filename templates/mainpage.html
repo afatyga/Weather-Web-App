@@ -5,9 +5,12 @@
 	<style>
 		h1{
 			font-family: "Courier New", Courier, monospace;
+			font-weight: bold;
+			font-stretch: extra-expanded;
 		}
 		body{
-			background: linear-gradient(lightgoldenrodyellow, cornflowerblue);
+		  background: lightpink url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/cf2836cb-5893-4a6c-b156-5a89d94fc721/dce971x-6ecffdd7-06eb-4a76-9841-584d53cdcbae.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2NmMjgzNmNiLTU4OTMtNGE2Yy1iMTU2LTVhODlkOTRmYzcyMVwvZGNlOTcxeC02ZWNmZmRkNy0wNmViLTRhNzYtOTg0MS01ODRkNTNjZGNiYWUuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.69RbrS6nZJ2GikBOlFC_zULZC4g40MS6R869kPXSDQk") no-repeat fixed center; 
+
 		}
 	</style>
 
@@ -51,18 +54,18 @@
     <!-- This <div> is to display the timezone, temperature, and humidity on web page-->
     <!-- The <div> is to display the data reading from Dark Sky API -->
     <div id = "info" class = "info">
-        <span style = "font-size: 24px; font-family:Courier New, Courier, monospace" class = "first">In your current location, it is </span>
-        <span style = "font-size: 24px; font-family:Courier New, Courier, monospace" class = "descript"></span>
+        <span style = "font-size: 24px; font-weight: bold; font-family:Courier New, Courier, monospace" class = "first">In your current location, it is </span>
+        <span style = "font-size: 24px; font-weight: bold; font-family:Courier New, Courier, monospace" class = "descript"></span>
     </div>
     <div id = "temp" class = "temperature">
-        <span style = "font-size: 24px; font-family:Courier New, Courier, monospace" class = "title1"> The current temperature is </span>
-        <span style = "font-size: 24px; font-family:Courier New, Courier, monospace" class="degree"></span>
-        <span style = "font-size: 24px; font-family:Courier New, Courier, monospace" class="temp-type">°F</span>
+        <span style = "font-size: 24px; font-weight: bold; font-family:Courier New, Courier, monospace" class = "title1"> The current temperature is </span>
+        <span style = "font-size: 24px; font-weight: bold; font-family:Courier New, Courier, monospace" class="degree"></span>
+        <span style = "font-size: 24px; font-weight: bold; font-family:Courier New, Courier, monospace" class="temp-type">°F</span>
     </div>
     <div id = "humid" class = "humidd">
-        <span style = "font-size: 24px; font-family:Courier New, Courier, monospace" class="title 2">The current humidity is </span>
-        <span style = "font-size: 24px; font-family:Courier New, Courier, monospace" class = "humid"></span>
-        <span style = "font-size: 24px; font-family:Courier New, Courier, monospace" class="percent">%</span>
+        <span style = "font-size: 24px; font-weight: bold; font-family:Courier New, Courier, monospace" class="title 2">The current humidity is </span>
+        <span style = "font-size: 24px; font-weight: bold; font-family:Courier New, Courier, monospace" class = "humid"></span>
+        <span style = "font-size: 24px; font-weight: bold; font-family:Courier New, Courier, monospace" class="percent">%</span>
     </div>
 
     <!-- This script is to get the data from Dark Sky Api as well as the device's location -->
@@ -164,15 +167,12 @@
     <p> <br></p>
 </head>
 
-	<p style="font-family:Courier New, Courier, monospace;font-size:24px;" id="sensorIntro"></p>
+	<p style="font-family:Courier New, Courier, monospace;font-size:24px;font-weight: bold;" id="sensorIntro"></p>
 
     <div id="tempgraph" style="height: 500px; width: 100%;"align="center"></div>
     <div align="center" id="tempgraph" style="height: 300px; width: 60%;"></div>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
-<!--<div class = "sensor">
-        <span style = "text-align: center; font-family:Courier New, Courier, monospace" class="title 2">And data coming live from our sensor shows ... </span>
-    </div>-->
 
 <script> // This script is to display the graph of temperature and humidity
 
@@ -181,7 +181,7 @@ function signIn(){
 	var t = {{temp| tojson|safe}};
 
 	var x = document.getElementById("sensorIntro");
-	x.innerHTML = "And according to our sensor's readings from Room " + (Math.ceil(Math.random() * 10)) + " in the previous month, we see the following readings"
+	x.innerHTML = "According to our sensor's readings from room " + (Math.ceil(Math.random() * 10)) + " in the past month, we see the following"
 
 
 //	window.onload = function () {
