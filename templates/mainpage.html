@@ -51,18 +51,18 @@
     <!-- This <div> is to display the timezone, temperature, and humidity on web page-->
     <!-- The <div> is to display the data reading from Dark Sky API -->
     <div id = "info" class = "info">
-        <span style = "font-size: 18p; font-family:Courier New, Courier, monospace" class = "first">In your current location, it is </span>
-        <span style = "font-size: 18p; font-family:Courier New, Courier, monospace" class = "descript"></span>
+        <span style = "font-size: 18px; font-family:Courier New, Courier, monospace" class = "first">In your current location, it is </span>
+        <span style = "font-size: 18px; font-family:Courier New, Courier, monospace" class = "descript"></span>
     </div>
     <div id = "temp" class = "temperature">
-        <span style = "font-size: 18p; font-family:Courier New, Courier, monospace" class = "title1"> The current temperature is </span>
-        <span style = "font-size: 18p; font-family:Courier New, Courier, monospace" class="degree"></span>
-        <span style = "font-size: 18p; font-family:Courier New, Courier, monospace" class="temp-type">°F</span>
+        <span style = "font-size: 18px; font-family:Courier New, Courier, monospace" class = "title1"> The current temperature is </span>
+        <span style = "font-size: 18px; font-family:Courier New, Courier, monospace" class="degree"></span>
+        <span style = "font-size: 18px; font-family:Courier New, Courier, monospace" class="temp-type">°F</span>
     </div>
     <div id = "humid" class = "humidd">
-        <span style = "font-size: 18p; font-family:Courier New, Courier, monospace" class="title 2">The current humidity is </span>
-        <span style = "font-size: 18p; font-family:Courier New, Courier, monospace" class = "humid"></span>
-        <span style = "font-size: 18p; font-family:Courier New, Courier, monospace" class="percent">%</span>
+        <span style = "font-size: 18px; font-family:Courier New, Courier, monospace" class="title 2">The current humidity is </span>
+        <span style = "font-size: 18px; font-family:Courier New, Courier, monospace" class = "humid"></span>
+        <span style = "font-size: 18px; font-family:Courier New, Courier, monospace" class="percent">%</span>
     </div>
 
     <!-- This script is to get the data from Dark Sky Api as well as the device's location -->
@@ -169,7 +169,7 @@
     <p> <br></p>
 </head>
 
-	<p id="sensorIntro"></p>
+	<p style="font-family:Courier New, Courier, monospace;font-size:18px;" id="sensorIntro"></p>
 
     <div id="tempgraph" style="height: 500px; width: 100%;"align="center"></div>
     <div align="center" id="tempgraph" style="height: 300px; width: 60%;"></div>
@@ -218,7 +218,7 @@ function signIn(){
 	var t = {{temp| tojson|safe}};
 
 	var x = document.getElementById("sensorIntro");
-	x.innerHTML = "And according to our sensor's readings from Room " + (Math.floor(Math.random() * 10)) + "in the previous month, we see... "
+	x.innerHTML = "And according to our sensor's readings from Room " + (Math.ceil(Math.random() * 10)) + " in the previous month, we see... "
 
 
 //	window.onload = function () {
