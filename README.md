@@ -38,6 +38,8 @@ The meeting on 9/12 tested sprint 1 and kicked off sprint 2 with the set goal to
 The meeting on 9/15 concluded sprint 2 and began testing for sprint 2 and front end work <br/>
 9/15 until the deadline will be spent on testing and improving the front end's appearance
 <br/><br/>
+## Database Info
+The database was created in the Google Cloud SQL Console and that is what we connect to and read from. Therefore, we do not have a file of the SQL table in our repo. Screenshots of the table in the database that we use is located in the creatingDBonGoogleSql folder of the repo.
 ## Tests:
 Due to the way we have formatted our app, there is little user input meaning that all the user does is log in, allow their location to be used and log out. We have tested this by using a variety of emails, logging in and out multiple times, and checking if the map is correct. When a user log outs, the page no longer displays sensor data meaning this information is only displayed when the user is logged in. 
 <br/><br/>
