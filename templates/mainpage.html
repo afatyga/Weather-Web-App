@@ -122,7 +122,8 @@
       var map, infoWindow;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 42.36, lng: -71.06}, // This location is the initial location before it gets the data from the device's location
+            center: {lat: 42.36, lng: -71.06}, // This location is the initial location before it gets the data from the device's location
+            zoom: 15
         });
         infoWindow = new google.maps.InfoWindow;
 
