@@ -3,6 +3,12 @@ BU Engineering EC463<br/>
 Software Mini Project Group 47<br/>
 Alex Fatyga + Yi Wei (Danny) Chen<br/>
 <br/>
+<br/>
+UPDATE
+<br/> The Google Cloud account has ended its free trial. Pictures of the working website are located in the Images folder. Video of the log in functionality located at https://www.youtube.com/watch?v=76MmqG60rgM
+<br/>
+<br/>
+<br/>
 Website: https://ec463-group47.appspot.com/
 <br/> Please make sure to use https so that the connection is considered secure by your browser and allows for location to be used
 <br/>
